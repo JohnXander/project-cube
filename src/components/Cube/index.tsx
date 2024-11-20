@@ -76,19 +76,24 @@ export const Cube = () => {
         <ambientLight intensity={0.5} />
         <directionalLight position={[10, 10, 10]} />
         <OrbitControls enableZoom={true} />
-        <mesh ref={cubeRef} position={[0, 0, 0]} onPointerDown={handlePointerDown}>
+        <mesh
+          ref={cubeRef}
+          position={[0, 0, 0]}
+          rotation={[Math.PI / 8, Math.PI / 3, 0]} // Rotate the cube to show 3 faces
+          onPointerDown={handlePointerDown}
+        >
           {/* Front face */}
-          <meshBasicMaterial attach="material-0" color={new THREE.Color("#ADD8E6")} />
+          <meshBasicMaterial attach="material-0" color={new THREE.Color("#e2e8f0")} />
           {/* Back face */}
-          <meshBasicMaterial attach="material-1" color={new THREE.Color("#5F9EA0")} />
+          <meshBasicMaterial attach="material-1" color={new THREE.Color("#cbd5e1")} />
           {/* Left face */}
-          <meshBasicMaterial attach="material-2" color={new THREE.Color("#4682B4")} />
+          <meshBasicMaterial attach="material-2" color={new THREE.Color("#94a3b8")} />
           {/* Right face */}
-          <meshBasicMaterial attach="material-3" color={new THREE.Color("#00BFFF")} />
+          <meshBasicMaterial attach="material-3" color={new THREE.Color("#64748b")} />
           {/* Top face */}
-          <meshBasicMaterial attach="material-4" color={new THREE.Color("#1E90FF")} />
+          <meshBasicMaterial attach="material-4" color={new THREE.Color("#475569")} />
           {/* Bottom face */}
-          <meshBasicMaterial attach="material-5" color={new THREE.Color("#87CEFA")} />
+          <meshBasicMaterial attach="material-5" color={new THREE.Color("#334155")} />
           <boxGeometry args={[2, 2, 2]} />
         </mesh>
       </Canvas>
