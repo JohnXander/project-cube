@@ -43,8 +43,6 @@ export const Cube = () => {
       const material = mesh.material;
   
       if (Array.isArray(material)) {
-        const selectedMaterial = material[intersectedObject.face.materialIndex];
-        console.log('Selected material:', selectedMaterial);
         // Set image name based on the texture index
         setImageName(textures[intersectedObject.face.materialIndex].name);
       } else if (material instanceof THREE.MeshBasicMaterial) {
