@@ -1,13 +1,19 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { ThreeEvent } from "@react-three/fiber";
 import * as THREE from "three"; // Import THREE
+import Dialog from "@mui/material/Dialog";
+import DialogContent from "@mui/material/DialogContent";
+import DialogTitle from "@mui/material/DialogTitle";
 
 export const Cube = () => {
   const cubeRef = useRef<THREE.Mesh | null>(null); // Ensure the ref is typed as THREE.Mesh or null
   const clickTimeout = useRef<number | null>(null); // Ensure it's typed as number | null
   const clickCount = useRef(0); // Track the number of clicks
+
+  const [openDialog, setOpenDialog] = useState(false); // State to control the Dialog visibility
+  const [dialogColor, setDialogColor] = useState<string>("#ffffff"); // State for background color
 
   const handleDoubleClick = (e: ThreeEvent<PointerEvent>) => {
     // Get the intersection of the click position with the cube
@@ -26,14 +32,16 @@ export const Cube = () => {
 
         // Narrow the type to MeshBasicMaterial to access 'color'
         if (selectedMaterial instanceof THREE.MeshBasicMaterial) {
-          console.log(`Double clicked on ${selectedMaterial.color.getHexString()}`);
+          setDialogColor(selectedMaterial.color.getHexString()); // Set the background color
+          setOpenDialog(true); // Open the dialog
         } else {
           console.log("Material doesn't have a color property");
         }
       } else {
         // If material is a single object, check if it's MeshBasicMaterial
         if (material instanceof THREE.MeshBasicMaterial) {
-          console.log(`Double clicked on ${material.color.getHexString()}`);
+          setDialogColor(material.color.getHexString()); // Set the background color
+          setOpenDialog(true); // Open the dialog
         } else {
           console.log("Material doesn't have a color property");
         }
@@ -63,25 +71,40 @@ export const Cube = () => {
   };
 
   return (
-    <Canvas style={{ height: "100vh", width: "100vw", background: "#1e293b" }}>
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[10, 10, 10]} />
-      <OrbitControls enableZoom={true} />
-      <mesh ref={cubeRef} position={[0, 0, 0]} onPointerDown={handlePointerDown}>
-        {/* Front face */}
-        <meshBasicMaterial attach="material-0" color="blue" />
-        {/* Back face */}
-        <meshBasicMaterial attach="material-1" color="green" />
-        {/* Left face */}
-        <meshBasicMaterial attach="material-2" color="red" />
-        {/* Right face */}
-        <meshBasicMaterial attach="material-3" color="yellow" />
-        {/* Top face */}
-        <meshBasicMaterial attach="material-4" color="orange" />
-        {/* Bottom face */}
-        <meshBasicMaterial attach="material-5" color="purple" />
-        <boxGeometry args={[2, 2, 2]} />
-      </mesh>
-    </Canvas>
+    <>
+      <Canvas style={{ height: "100vh", width: "100vw", background: "#1e293b" }}>
+        <ambientLight intensity={0.5} />
+        <directionalLight position={[10, 10, 10]} />
+        <OrbitControls enableZoom={true} />
+        <mesh ref={cubeRef} position={[0, 0, 0]} onPointerDown={handlePointerDown}>
+          {/* Front face */}
+          <meshBasicMaterial attach="material-0" color={new THREE.Color("#ADD8E6")} />
+          {/* Back face */}
+          <meshBasicMaterial attach="material-1" color={new THREE.Color("#5F9EA0")} />
+          {/* Left face */}
+          <meshBasicMaterial attach="material-2" color={new THREE.Color("#4682B4")} />
+          {/* Right face */}
+          <meshBasicMaterial attach="material-3" color={new THREE.Color("#00BFFF")} />
+          {/* Top face */}
+          <meshBasicMaterial attach="material-4" color={new THREE.Color("#1E90FF")} />
+          {/* Bottom face */}
+          <meshBasicMaterial attach="material-5" color={new THREE.Color("#87CEFA")} />
+          <boxGeometry args={[2, 2, 2]} />
+        </mesh>
+      </Canvas>
+
+      {/* MUI Dialog */}
+      <Dialog open={openDialog} onClose={() => setOpenDialog(false)}>
+        <DialogTitle>Color Information</DialogTitle>
+        <DialogContent
+          style={{
+            height: "200px",
+            width: "300px",
+          }}
+        >
+          <p style={{ color: "#334155" }}>This is the color: {dialogColor}</p>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 };
