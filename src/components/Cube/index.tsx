@@ -5,8 +5,8 @@ import { ThreeEvent } from "@react-three/fiber";
 import * as THREE from "three"; // Import THREE
 
 export const Cube = () => {
-  const cubeRef = useRef();
-  const clickTimeout = useRef(null); // Ref to store the timeout ID
+  const cubeRef = useRef<THREE.Mesh | null>(null); // Ensure the ref is typed as THREE.Mesh or null
+  const clickTimeout = useRef<number | null>(null); // Ensure it's typed as number | null
   const clickCount = useRef(0); // Track the number of clicks
 
   const handleDoubleClick = (e: ThreeEvent<PointerEvent>) => {
@@ -54,14 +54,16 @@ export const Cube = () => {
       }, 300); // 300ms timeout for double-click detection
     } else if (clickCount.current === 2) {
       // Double click: immediately handle the double-click
-      clearTimeout(clickTimeout.current); // Clear the timeout to prevent treating it as a single click
+      if (clickTimeout.current !== null) {
+        clearTimeout(clickTimeout.current); // Clear the timeout to prevent treating it as a single click
+      }
       clickCount.current = 0; // Reset the click count
       handleDoubleClick(e); // Call the double-click handler
     }
   };
 
   return (
-    <Canvas style={{ height: "100vh", background: "#fff" }}>
+    <Canvas style={{ height: "100vh", width: "100vw", background: "#1e293b" }}>
       <ambientLight intensity={0.5} />
       <directionalLight position={[10, 10, 10]} />
       <OrbitControls enableZoom={true} />
