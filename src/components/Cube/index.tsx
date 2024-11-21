@@ -12,7 +12,7 @@ import dog3 from "../../assets/dog3.jpeg";
 import dog4 from "../../assets/dog4.jpeg";
 import dog5 from "../../assets/dog5.jpeg";
 import dog6 from "../../assets/dog6.jpeg";
-import { Typography } from "@mui/material";
+import { Typography, Box, Button, Link } from "@mui/material";
 
 export const Cube = () => {
   const cubeRef = useRef<THREE.Mesh | null>(null);
@@ -21,6 +21,7 @@ export const Cube = () => {
 
   const [openDialog, setOpenDialog] = useState(false);
   const [imageName, setImageName] = useState<string | null>(null);
+  const [showInstructions, setShowInstructions] = useState(true);
 
   // Texture loader for loading images
   const textureLoader = new THREE.TextureLoader();
@@ -37,18 +38,15 @@ export const Cube = () => {
 
   const handleDoubleClick = (e: ThreeEvent<PointerEvent>) => {
     const intersectedObject = e.intersections[0];
-  
+
     if (intersectedObject && intersectedObject.face) {
-      // Cast the object to THREE.Mesh to access its material
       const mesh = intersectedObject.object as THREE.Mesh;
       const material = mesh.material;
-  
+
       if (Array.isArray(material)) {
-        // Set image name based on the texture index
         setImageName(textures[intersectedObject.face.materialIndex].name);
       } else if (material instanceof THREE.MeshBasicMaterial) {
-        // If it's a single material, set the image name directly
-        setImageName(textures[0].name); // Default to the first texture
+        setImageName(textures[0].name);
       }
       setOpenDialog(true);
     }
@@ -72,7 +70,7 @@ export const Cube = () => {
 
   return (
     <div style={{ userSelect: "none" }}>
-     <Canvas
+      <Canvas
         style={{ height: "100vh", width: "100vw", background: "#1e293b" }}
         camera={{ position: [0, 0, 3.5] }}
       >
@@ -92,39 +90,102 @@ export const Cube = () => {
         </mesh>
       </Canvas>
 
-       {/* Instructions for the user */}
-       <Typography
-        variant="h6"
-        style={{
+      {/* Instructions for the user */}
+      {showInstructions && (
+        <Box
+          sx={{
+            position: "absolute",
+            top: "10px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            color: "white",
+            zIndex: 10,
+            textAlign: "center",
+            padding: "10px",
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            borderRadius: "5px",
+            width: "600px", // Optional, to better center the box
+          }}
+        >
+          <Button
+            onClick={() => setShowInstructions(false)}
+            sx={{
+              position: "absolute",
+              top: "5px",
+              right: "5px",
+              color: "white",
+              fontSize: "1rem",
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              textTransform: "none",
+            }}
+          >
+            ❌
+          </Button>
+          <Typography variant="h6" sx={{ mb: 1 }}>
+            🖱️ Rotate the cube by dragging with the mouse. <br />
+            🔍 Zoom in and out using the scroll wheel. <br />
+            👆 Double click on a cube face to view a project.
+          </Typography>
+        </Box>
+      )}
+
+       {/* Links to GitHub and LinkedIn */}
+       <Box
+        sx={{
           position: "absolute",
-          top: "10px",
+          bottom: "10px",
           left: "50%",
           transform: "translateX(-50%)",
-          color: "white",
-          zIndex: 10, // Ensure it's above the canvas
+          zIndex: 10,
           textAlign: "center",
-          padding: "10px",
-          backgroundColor: "rgba(0, 0, 0, 0.5)", // Semi-transparent background for readability
-          borderRadius: "5px",
+          color: "white",
         }}
       >
-        🖱️ Rotate the cube by dragging with the mouse. <br />
-        🔍 Zoom in and out using the scroll wheel. <br />
-        👆 Double click on a cube face to view a project.
-      </Typography>
+        <Typography variant="body2" sx={{ mb: 1 }}>
+          Connect with me on
+        </Typography>
+        <Box>
+          <Link
+            href="https://github.com/JohnXander"
+            target="_blank"
+            sx={{
+              color: "white",
+              textDecoration: "none",
+              margin: "0 10px",
+              fontWeight: "bold",
+            }}
+          >
+            GitHub
+          </Link>
+          <Link
+            href="https://www.linkedin.com/in/john-bloxam-210207250"
+            target="_blank"
+            sx={{
+              color: "white",
+              textDecoration: "none",
+              margin: "0 10px",
+              fontWeight: "bold",
+            }}
+          >
+            LinkedIn
+          </Link>
+        </Box>
+      </Box>
 
       <Dialog
         open={openDialog}
         onClose={() => setOpenDialog(false)}
         fullWidth
-        maxWidth="xl" // Set maxWidth to xl for a larger dialog
+        maxWidth="xl"
         PaperProps={{
           style: {
             width: "70vw",
             height: "90vh",
-            margin: 0, // Remove margin for full screen effect
-            padding: 0, // Optional: remove padding if needed
-            overflow: "hidden", // Prevent overflow
+            margin: 0,
+            padding: 0,
+            overflow: "hidden",
             backgroundColor: '#334155'
           }
         }}
@@ -132,13 +193,13 @@ export const Cube = () => {
         <DialogTitle color="white">Image Name</DialogTitle>
         <DialogContent
           style={{
-            height: "calc(100vh - 64px)", // Adjust content height to fill the remaining space
-            width: "100%", // Full width
-            padding: 20, // Add some padding
+            height: "calc(100vh - 64px)",
+            width: "100%",
+            padding: 20,
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            overflow: "hidden", // Ensure no overflow
+            overflow: "hidden",
             color: "white"
           }}
         >
