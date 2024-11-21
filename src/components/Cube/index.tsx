@@ -7,7 +7,7 @@ import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import dog1 from "../../assets/dog1.jpeg";
-import dog2 from "../../assets/dog2.jpeg";
+import klipboar from "../../assets/klipboar.jpg";
 import dog3 from "../../assets/dog3.jpeg";
 import dog4 from "../../assets/dog4.jpeg";
 import dog5 from "../../assets/dog5.jpeg";
@@ -27,7 +27,7 @@ export const Cube = () => {
   // Load images for the cube faces
   const textures = [
     { texture: textureLoader.load(dog1), name: "dog1.jpeg" },
-    { texture: textureLoader.load(dog2), name: "dog2.jpeg" },
+    { texture: textureLoader.load(klipboar), name: "klipboar" },
     { texture: textureLoader.load(dog3), name: "dog3.jpeg" },
     { texture: textureLoader.load(dog4), name: "dog4.jpeg" },
     { texture: textureLoader.load(dog5), name: "dog5.jpeg" },
