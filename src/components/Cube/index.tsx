@@ -71,7 +71,7 @@ export const Cube = () => {
   };
 
   return (
-    <>
+    <div style={{ userSelect: "none" }}>
      <Canvas
         style={{ height: "100vh", width: "100vw", background: "#1e293b" }}
         camera={{ position: [0, 0, 3.5] }}
@@ -108,7 +108,9 @@ export const Cube = () => {
           borderRadius: "5px",
         }}
       >
-        You can rotate the cube by clicking and dragging anywhere on the screen. Double-click on a face to open a project.
+        🖱️ Rotate the cube by dragging with the mouse. <br />
+        🔍 Zoom in and out using the scroll wheel. <br />
+        👆 Double click on a cube face to view a project.
       </Typography>
 
       <Dialog
@@ -143,6 +145,6 @@ export const Cube = () => {
           <p>The image name is: {imageName}</p>
         </DialogContent>
       </Dialog>
-    </>
+    </div>
   );
 };
