@@ -12,6 +12,7 @@ import dog3 from "../../assets/dog3.jpeg";
 import dog4 from "../../assets/dog4.jpeg";
 import dog5 from "../../assets/dog5.jpeg";
 import dog6 from "../../assets/dog6.jpeg";
+import { Typography } from "@mui/material";
 
 export const Cube = () => {
   const cubeRef = useRef<THREE.Mesh | null>(null);
@@ -71,14 +72,17 @@ export const Cube = () => {
 
   return (
     <>
-      <Canvas style={{ height: "100vh", width: "100vw", background: "#1e293b" }}>
+     <Canvas
+        style={{ height: "100vh", width: "100vw", background: "#1e293b" }}
+        camera={{ position: [0, 0, 3.5] }}
+      >
         <ambientLight intensity={0.5} />
         <directionalLight position={[10, 10, 10]} />
         <OrbitControls enableZoom={true} />
         <mesh
           ref={cubeRef}
           position={[0, 0, 0]}
-          rotation={[Math.PI / 8, Math.PI / 3, 0]}
+          rotation={[Math.PI / 9, Math.PI / 2.75, 0]}
           onPointerDown={handlePointerDown}
         >
           {textures.map((texture, index) => (
@@ -88,6 +92,25 @@ export const Cube = () => {
         </mesh>
       </Canvas>
 
+       {/* Instructions for the user */}
+       <Typography
+        variant="h6"
+        style={{
+          position: "absolute",
+          top: "10px",
+          left: "50%",
+          transform: "translateX(-50%)",
+          color: "white",
+          zIndex: 10, // Ensure it's above the canvas
+          textAlign: "center",
+          padding: "10px",
+          backgroundColor: "rgba(0, 0, 0, 0.5)", // Semi-transparent background for readability
+          borderRadius: "5px",
+        }}
+      >
+        You can rotate the cube by clicking and dragging anywhere on the screen. Double-click on a face to open a project.
+      </Typography>
+
       <Dialog
         open={openDialog}
         onClose={() => setOpenDialog(false)}
@@ -96,7 +119,7 @@ export const Cube = () => {
         PaperProps={{
           style: {
             width: "70vw",
-            height: "80vh",
+            height: "90vh",
             margin: 0, // Remove margin for full screen effect
             padding: 0, // Optional: remove padding if needed
             overflow: "hidden", // Prevent overflow
