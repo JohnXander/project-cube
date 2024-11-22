@@ -72,7 +72,7 @@ export const Cube = () => {
     <div style={{ userSelect: "none" }}>
       <Canvas
         style={{ height: "100vh", width: "100vw", background: "#1e293b" }}
-        camera={{ position: [0, 0, 3.5] }}
+        camera={{ position: [0, 0, 4.5] }}
       >
         <ambientLight intensity={0.5} />
         <directionalLight position={[10, 10, 10]} />
@@ -101,33 +101,44 @@ export const Cube = () => {
             color: "white",
             zIndex: 10,
             textAlign: "center",
-            padding: "10px",
+            padding: 0,
             backgroundColor: "rgba(0, 0, 0, 0.5)",
             borderRadius: "5px",
-            width: "600px", // Optional, to better center the box
+            width: "300px", // Default width
+            fontSize: "0.875rem",
           }}
         >
           <Button
             onClick={() => setShowInstructions(false)}
             sx={{
               position: "absolute",
-              top: "5px",
-              right: "5px",
+              top: '0.5rem',
+              right: '0.75rem',
               color: "white",
-              fontSize: "1rem",
+              fontSize: "0.75rem",
               background: "none",
               border: "none",
               cursor: "pointer",
               textTransform: "none",
-              outline: "none", // Remove focus outline
+              outline: "none",
+              padding: "0 !important", // Ensure no padding
+              minWidth: 0, // Remove default minimum width
               "&:focus": {
-                outline: "none", // Ensure no outline on focus
+                outline: "none",
               },
             }}
           >
             ❌
           </Button>
-          <Typography variant="h6" sx={{ mb: 1 }}>
+          <Typography
+            variant="h6"
+            sx={{
+              fontSize: "0.75rem",
+              paddingTop: "0.5rem",
+              paddingBottom: "0.75rem",
+            }}
+          >
+            <strong style={{ color: '#0ea5e9', fontSize: '1rem' }}>CONTROLS:</strong> <br />
             🖱️ Rotate the cube by dragging with the mouse. <br />
             🔍 Zoom in and out using the scroll wheel. <br />
             👆 Double click on a cube face to view a project.
@@ -147,8 +158,8 @@ export const Cube = () => {
           color: "white",
         }}
       >
-        <Typography variant="body2" sx={{ mb: 1 }}>
-          Connect with me on
+        <Typography variant="body2" sx={{ mb: '0.25rem' }}>
+          Connect with me on:
         </Typography>
         <Box>
           <Link
@@ -171,6 +182,7 @@ export const Cube = () => {
               textDecoration: "none",
               margin: "0 10px",
               fontWeight: "bold",
+              fontSize: "1rem",
             }}
           >
             LinkedIn
