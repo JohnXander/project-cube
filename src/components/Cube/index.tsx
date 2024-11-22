@@ -128,7 +128,7 @@ export const Cube = () => {
               },
             }}
           >
-            ❌
+            ㄨ
           </Button>
           <Typography
             variant="h6"
@@ -136,9 +136,10 @@ export const Cube = () => {
               fontSize: "0.75rem",
               paddingTop: "0.5rem",
               paddingBottom: "0.75rem",
+              color: '#f8fafc'
             }}
           >
-            <strong style={{ color: '#0ea5e9', fontSize: '1rem' }}>CONTROLS:</strong> <br />
+            <strong style={{ color: '#7dd3fc', fontSize: '1rem' }}>CONTROLS:</strong> <br />
             🖱️ Rotate the cube by dragging with the mouse. <br />
             🔍 Zoom in and out using the scroll wheel. <br />
             👆 Double click on a cube face to view a project.
@@ -228,7 +229,7 @@ export const Cube = () => {
               },
             }}
           >
-            ❌
+            ㄨ
           </Button>
         </DialogTitle>
         <DialogContent
