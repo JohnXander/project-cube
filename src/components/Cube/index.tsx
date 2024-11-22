@@ -8,9 +8,9 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import dog1 from "../../assets/dog1.jpeg";
 import klipboar from "../../assets/klipboar.jpg";
-import dog3 from "../../assets/dog3.jpeg";
+import minilrs from "../../assets/minilrs.jpg";
+import geoquix from "../../assets/geoquix.jpg";
 import dog4 from "../../assets/dog4.jpeg";
-import dog5 from "../../assets/dog5.jpeg";
 import dog6 from "../../assets/dog6.jpeg";
 import { Typography, Box, Button, Link } from "@mui/material";
 
@@ -30,9 +30,9 @@ export const Cube = () => {
   const textures = [
     { texture: textureLoader.load(dog1), name: "dog1.jpeg" },
     { texture: textureLoader.load(klipboar), name: "klipboar" },
-    { texture: textureLoader.load(dog3), name: "dog3.jpeg" },
+    { texture: textureLoader.load(geoquix), name: "geoquix" },
     { texture: textureLoader.load(dog4), name: "dog4.jpeg" },
-    { texture: textureLoader.load(dog5), name: "dog5.jpeg" },
+    { texture: textureLoader.load(minilrs), name: "minilrs" },
     { texture: textureLoader.load(dog6), name: "dog6.jpeg" }
   ];
 
@@ -119,6 +119,10 @@ export const Cube = () => {
               border: "none",
               cursor: "pointer",
               textTransform: "none",
+              outline: "none", // Remove focus outline
+              "&:focus": {
+                outline: "none", // Ensure no outline on focus
+              },
             }}
           >
             ❌
@@ -186,11 +190,35 @@ export const Cube = () => {
             margin: 0,
             padding: 0,
             overflow: "hidden",
-            backgroundColor: '#334155'
-          }
+            backgroundColor: "#334155",
+          },
         }}
       >
-        <DialogTitle color="white">Image Name</DialogTitle>
+        <DialogTitle sx={{ color: "white", position: "relative", padding: "16px" }}>
+          Image Name
+          <Button
+            onClick={() => setOpenDialog(false)}
+            sx={{
+              position: "absolute",
+              top: "8px",
+              right: "20px",
+              color: "white",
+              fontSize: "1.5rem",
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              textTransform: "none",
+              padding: 0,
+              minWidth: 0,
+              outline: "none", // Remove focus outline
+              "&:focus": {
+                outline: "none", // Ensure no outline on focus
+              },
+            }}
+          >
+            ❌
+          </Button>
+        </DialogTitle>
         <DialogContent
           style={{
             height: "calc(100vh - 64px)",
@@ -200,7 +228,7 @@ export const Cube = () => {
             justifyContent: "center",
             alignItems: "center",
             overflow: "hidden",
-            color: "white"
+            color: "white",
           }}
         >
           <p>The image name is: {imageName}</p>
