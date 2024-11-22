@@ -71,7 +71,7 @@ export const Cube = () => {
   return (
     <div style={{ userSelect: "none" }}>
       <Canvas
-        style={{ height: "100vh", width: "100vw", background: "#1e293b" }}
+        style={{ height: "100vh", width: "100vw", background: "linear-gradient(135deg, #0f172a, #3a3a4d)" }}
         camera={{ position: [0, 0, 4.5] }}
       >
         <ambientLight intensity={0.5} />
@@ -139,7 +139,7 @@ export const Cube = () => {
               color: '#f8fafc'
             }}
           >
-            <strong style={{ color: '#7dd3fc', fontSize: '1rem' }}>CONTROLS:</strong> <br />
+            <strong style={{ color: '#7dd3fc', fontSize: '1rem' }}>LAPTOP CONTROLS:</strong> <br />
             🖱️ Rotate the cube by dragging with the mouse. <br />
             🔍 Zoom in and out using the scroll wheel. <br />
             👆 Double click on a cube face to view a project.
@@ -160,7 +160,7 @@ export const Cube = () => {
         }}
       >
         <Typography variant="body2" sx={{ mb: '0.25rem' }}>
-          Connect with me on:
+          Connect with me:
         </Typography>
         <Box>
           <Link
@@ -171,6 +171,9 @@ export const Cube = () => {
               textDecoration: "none",
               margin: "0 10px",
               fontWeight: "bold",
+              "&:hover": {
+                color: "#7dd3fc", // Change to your desired hover color
+              },
             }}
           >
             GitHub
@@ -184,12 +187,31 @@ export const Cube = () => {
               margin: "0 10px",
               fontWeight: "bold",
               fontSize: "1rem",
+              "&:hover": {
+                color: "#7dd3fc", // Change to your desired hover color
+              },
             }}
           >
             LinkedIn
           </Link>
+          <Link
+            href="mailto:your-email@example.com"
+            sx={{
+              color: "white",
+              textDecoration: "none",
+              margin: "0 10px",
+              fontWeight: "bold",
+              fontSize: "1rem",
+              "&:hover": {
+                color: "#7dd3fc", // Change to your desired hover color
+              },
+            }}
+          >
+            Email
+          </Link>
         </Box>
       </Box>
+
 
       <Dialog
         open={openDialog}
