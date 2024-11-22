@@ -71,7 +71,7 @@ export const Cube = () => {
   return (
     <div style={{ userSelect: "none" }}>
       <Canvas
-        style={{ height: "100vh", width: "100vw", background: "linear-gradient(135deg, #0f172a, #3a3a4d)" }}
+        style={{ height: "100vh", width: "100vw", background: "linear-gradient(135deg, #0f172a, #1e293b)" }}
         camera={{ position: [0, 0, 4.5] }}
       >
         <ambientLight intensity={0.5} />
