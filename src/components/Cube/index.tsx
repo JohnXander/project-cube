@@ -73,7 +73,7 @@ export const Cube = () => {
     <div style={{ userSelect: "none" }}>
       <Canvas
         style={{ height: "100vh", width: "100vw", background: "linear-gradient(135deg, #0f172a, #1e293b)" }}
-        camera={{ position: [0, 0, 4.5] }}
+        camera={{ position: [0, 0, 5] }}
       >
         <ambientLight intensity={0.5} />
         <directionalLight position={[10, 10, 10]} />
@@ -101,11 +101,11 @@ export const Cube = () => {
             transform: "translateX(-50%)",
             color: "white",
             zIndex: 10,
-            textAlign: "center",
-            padding: 0,
+            textAlign: "left",
+            paddingLeft: "1rem",
             backgroundColor: "rgba(0, 0, 0, 0.5)",
             borderRadius: "5px",
-            width: "300px", // Default width
+            width: "280px", // Default width
             fontSize: "0.875rem",
           }}
         >
@@ -140,7 +140,7 @@ export const Cube = () => {
               color: '#f8fafc'
             }}
           >
-            <strong style={{ color: '#7dd3fc', fontSize: '1rem' }}>LAPTOP CONTROLS:</strong> <br />
+            <strong style={{ color: '#7dd3fc', fontSize: '1rem' }}>LAPTOP CONTROLS</strong> <br />
             🖱️ Rotate the cube by dragging with the mouse. <br />
             🔍 Zoom in and out using the scroll wheel. <br />
             👆 Double click on a cube face to view a project.
