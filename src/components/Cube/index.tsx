@@ -219,13 +219,19 @@ export const Cube = () => {
         fullWidth
         maxWidth="xl"
         PaperProps={{
-          style: {
-            width: "70vw",
-            height: "100vh",
+          sx: {
+            // Default styles
+            width: '75vw', // 75% width for larger screens
+            height: '100vh', // Full height
             margin: 0,
             padding: 0,
-            overflow: "hidden",
-            background: "linear-gradient(135deg, #1e293b, #334155)"
+            overflow: 'hidden',
+            background: 'linear-gradient(135deg, #1e293b, #334155)',
+      
+            // Media query for small screens (mobile)
+            '@media (max-width: 600px)': {
+              width: '100vw',  // Full width for mobile
+            },
           },
         }}
       >
