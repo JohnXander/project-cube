@@ -13,6 +13,7 @@ import geoquix from "../../assets/geoquix.jpg";
 import dog4 from "../../assets/dog4.jpeg";
 import dog6 from "../../assets/dog6.jpeg";
 import { Typography, Box, Button, Link } from "@mui/material";
+import { projectData } from "../../data/projectData";
 
 export const Cube = () => {
   const cubeRef = useRef<THREE.Mesh | null>(null);
@@ -20,7 +21,7 @@ export const Cube = () => {
   const clickCount = useRef(0);
 
   const [openDialog, setOpenDialog] = useState(false);
-  const [imageName, setImageName] = useState<string | null>(null);
+  const [projectName, setProjectName] = useState<string | null>(null);
   const [showInstructions, setShowInstructions] = useState(true);
 
   // Texture loader for loading images
@@ -44,9 +45,9 @@ export const Cube = () => {
       const material = mesh.material;
 
       if (Array.isArray(material)) {
-        setImageName(textures[intersectedObject.face.materialIndex].name);
+        setProjectName(textures[intersectedObject.face.materialIndex].name);
       } else if (material instanceof THREE.MeshBasicMaterial) {
-        setImageName(textures[0].name);
+        setProjectName(textures[0].name);
       }
       setOpenDialog(true);
     }
@@ -212,7 +213,6 @@ export const Cube = () => {
         </Box>
       </Box>
 
-
       <Dialog
         open={openDialog}
         onClose={() => setOpenDialog(false)}
@@ -221,16 +221,18 @@ export const Cube = () => {
         PaperProps={{
           style: {
             width: "70vw",
-            height: "90vh",
+            height: "100vh",
             margin: 0,
             padding: 0,
             overflow: "hidden",
-            backgroundColor: "#334155",
+            background: "linear-gradient(135deg, #1e293b, #334155)"
           },
         }}
       >
         <DialogTitle sx={{ color: "white", position: "relative", padding: "16px" }}>
-          Image Name
+          {projectName && projectData[projectName as keyof typeof projectData]
+            ? projectData[projectName as keyof typeof projectData].title
+            : "Project Name"}
           <Button
             onClick={() => setOpenDialog(false)}
             sx={{
@@ -245,9 +247,9 @@ export const Cube = () => {
               textTransform: "none",
               padding: 0,
               minWidth: 0,
-              outline: "none", // Remove focus outline
+              outline: "none",
               "&:focus": {
-                outline: "none", // Ensure no outline on focus
+                outline: "none",
               },
             }}
           >
@@ -260,13 +262,43 @@ export const Cube = () => {
             width: "100%",
             padding: 20,
             display: "flex",
+            flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
             overflow: "hidden",
             color: "white",
           }}
         >
-          <p>The image name is: {imageName}</p>
+          {/* Render Video or Image */}
+          {projectName && projectData[projectName as keyof typeof projectData] ? (
+            projectData[projectName as keyof typeof projectData].video ? (
+              <video
+                src={projectData[projectName as keyof typeof projectData].video}
+                controls
+                style={{
+                  maxWidth: "100%",
+                  maxHeight: "70%",
+                  borderRadius: "8px",
+                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+                }}
+              />
+            ) : projectData[projectName as keyof typeof projectData].image ? (
+              <img
+                src={projectData[projectName as keyof typeof projectData].image}
+                alt={projectData[projectName as keyof typeof projectData].title || "Image"}
+                style={{
+                  maxWidth: "100%",
+                  maxHeight: "70%",
+                  borderRadius: "8px",
+                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+                }}
+              />
+            ) : (
+              <p>No media available</p>
+            )
+          ) : (
+            <p>Loading...</p>
+          )}
         </DialogContent>
       </Dialog>
     </div>
