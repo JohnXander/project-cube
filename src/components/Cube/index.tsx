@@ -6,12 +6,12 @@ import * as THREE from "three"; // Import THREE
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
-import dog1 from "../../assets/dog1.jpeg";
 import klipboar from "../../assets/klipboar.jpg";
 import minilrs from "../../assets/minilrs.jpg";
 import geoquix from "../../assets/geoquix.jpg";
-import dog4 from "../../assets/dog4.jpeg";
-import dog6 from "../../assets/dog6.jpeg";
+import projectcube from "../../assets/projectcube.jpg";
+import captivote from "../../assets/captivote.jpg";
+import avatarify from "../../assets/avatarify.jpg";
 import { Typography, Box, Button, Link } from "@mui/material";
 import { projectData } from "../../data/projectData";
 
@@ -29,12 +29,12 @@ export const Cube = () => {
 
   // Load images for the cube faces
   const textures = [
-    { texture: textureLoader.load(dog1), name: "dog1.jpeg" },
+    { texture: textureLoader.load(projectcube), name: "projectcube" },
     { texture: textureLoader.load(klipboar), name: "klipboar" },
     { texture: textureLoader.load(geoquix), name: "geoquix" },
-    { texture: textureLoader.load(dog4), name: "dog4.jpeg" },
+    { texture: textureLoader.load(captivote), name: "captivote" },
     { texture: textureLoader.load(minilrs), name: "minilrs" },
-    { texture: textureLoader.load(dog6), name: "dog6.jpeg" }
+    { texture: textureLoader.load(avatarify), name: "avatarify" }
   ];
 
   const handleDoubleClick = (e: ThreeEvent<PointerEvent>) => {
