@@ -1,7 +1,7 @@
 import klipboarImg from '../assets/klipboarScreen.jpg';
 import minilrsImg from '../assets/minilrsScreen.jpg';
 import geoquixImg from '../assets/geoquixScreen.jpg';
-import projectcubeImg from '../assets/projectcube.jpg';
+import projectcubeImg from '../assets/projectcubeScreen.jpg';
 import comingsoonImg from '../assets/comingsoonScreen.jpg';
 
 type ProjectKey = "klipboar" | "minilrs" | "geoquix" | "projectcube" | "captivote" | "avatarify";
