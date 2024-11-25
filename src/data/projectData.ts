@@ -1,9 +1,8 @@
-import klipboarImg from '../assets/klipboar.jpg';
-import minilrsImg from '../assets/minilrs.jpg';
-import geoquixImg from '../assets/geoquix.jpg';
+import klipboarImg from '../assets/klipboarScreen.jpg';
+import minilrsImg from '../assets/minilrsScreen.jpg';
+import geoquixImg from '../assets/geoquixScreen.jpg';
 import projectcubeImg from '../assets/projectcube.jpg';
-import captivoteImg from '../assets/captivote.jpg';
-import avatarifyImg from '../assets/avatarify.jpg';
+import comingsoonImg from '../assets/comingsoonScreen.jpg';
 
 type ProjectKey = "klipboar" | "minilrs" | "geoquix" | "projectcube" | "captivote" | "avatarify";
 
@@ -38,11 +37,11 @@ export const projectData: Record<ProjectKey, ProjectData> = {
   captivote: {
     title: "Captivote",
     description: "This is the description for Captivote.",
-    image: captivoteImg,
+    image: comingsoonImg,
   },
   avatarify: {
     title: "Avatarify",
     description: "This is the description for Avatarify.",
-    image: avatarifyImg,
+    image: comingsoonImg,
   },
 };
