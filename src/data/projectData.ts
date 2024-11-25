@@ -13,6 +13,7 @@ interface ProjectData {
   description: string;
   video?: string;
   image?: string;
+  tech?: string[];
 }
 
 export const projectData: Record<ProjectKey, ProjectData> = {
@@ -22,6 +23,7 @@ export const projectData: Record<ProjectKey, ProjectData> = {
     subtitle: "A school desktop app built with Electron.",
     description: "This is the description for Klipboar.",
     image: klipboarImg,
+    tech: ["Electron", "TypeScript", "MongoDB", "Express", "React", "React Query", "Node", "Tailwind"],
   },
   minilrs: {
     title: "Mini LRS",
@@ -29,6 +31,7 @@ export const projectData: Record<ProjectKey, ProjectData> = {
     subtitle: "A Learning Record Store built with the MERN stack.",
     description: "This is the description for Mini LRS.",
     image: minilrsImg,
+    tech: ["TypeScript", "MongoDB", "Express", "React", "Redux", "Node", "Tailwind"],
   },
   geoquix: {
     title: "GeoQuix",
@@ -36,6 +39,7 @@ export const projectData: Record<ProjectKey, ProjectData> = {
     subtitle: "A geography quiz app built with the T3 stack.",
     description: "This is the description for GeoQuix.",
     image: geoquixImg,
+    tech: ["TypeScript", "Next JS", "Prisma", "tRPC", "Postgres", "Tailwind"],
   },
   projectcube: {
     title: "Project Cube",
@@ -43,6 +47,7 @@ export const projectData: Record<ProjectKey, ProjectData> = {
     subtitle: "A 3D project portfolio built with Three.js.",
     description: "This is the description for Project Cube.",
     image: projectcubeImg,
+    tech: ["TypeScript", "Three.js", "React", "MUI"],
   },
   captivote: {
     title: "Captivote",
