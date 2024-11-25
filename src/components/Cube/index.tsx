@@ -227,6 +227,10 @@ export const Cube = () => {
             padding: 0,
             overflow: 'hidden',
             background: 'linear-gradient(135deg, #1e293b, #334155)',
+
+            '@media (min-width: 800px)': {
+              width: '50vw',
+            },
       
             // Media query for small screens (mobile)
             '@media (max-width: 600px)': {
@@ -235,10 +239,12 @@ export const Cube = () => {
           },
         }}
       >
-        <DialogTitle sx={{ color: "white", position: "relative", padding: "16px" }}>
+        <DialogTitle sx={{ color: "white", position: "relative", padding: "1rem 2rem"}}>
+          <Typography variant="h4" sx={{ fontSize: "1.5rem", fontWeight: "bold" }}>
           {projectName && projectData[projectName as keyof typeof projectData]
             ? projectData[projectName as keyof typeof projectData].title
             : "Project Name"}
+          </Typography>
           <Button
             onClick={() => setOpenDialog(false)}
             sx={{
@@ -265,12 +271,12 @@ export const Cube = () => {
         <DialogContent
           style={{
             height: "calc(100vh - 64px)",
-            width: "100%",
+            width: '100%',
             padding: 20,
+            paddingTop: 0,
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
+            alignItems: "start",
             overflow: "hidden",
             color: "white",
           }}
@@ -282,10 +288,10 @@ export const Cube = () => {
                 src={projectData[projectName as keyof typeof projectData].video}
                 controls
                 style={{
-                  maxWidth: "100%",
+                  maxWidth: "81%",
                   maxHeight: "70%",
                   borderRadius: "8px",
-                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+                  marginLeft: '1rem',
                 }}
               />
             ) : projectData[projectName as keyof typeof projectData].image ? (
@@ -293,10 +299,10 @@ export const Cube = () => {
                 src={projectData[projectName as keyof typeof projectData].image}
                 alt={projectData[projectName as keyof typeof projectData].title || "Image"}
                 style={{
-                  maxWidth: "100%",
+                  maxWidth: "81%",
                   maxHeight: "70%",
                   borderRadius: "8px",
-                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+                  marginLeft: '1rem',
                 }}
               />
             ) : (
