@@ -244,6 +244,8 @@ export const Cube = () => {
           {projectName && projectData[projectName as keyof typeof projectData]
             ? projectData[projectName as keyof typeof projectData].title
             : "Project Name"}
+          {" "}
+          ({projectName && projectData[projectName as keyof typeof projectData].year || "Year"})
           </Typography>
           <Button
             onClick={() => setOpenDialog(false)}
@@ -290,6 +292,7 @@ export const Cube = () => {
                 fontWeight: "medium",
                 marginBottom: "1rem",
                 marginLeft: "1rem",
+                maxWidth: "81%",
               }}
             >
               {projectData[projectName as keyof typeof projectData].subtitle || "Subtitle"}
@@ -336,6 +339,7 @@ export const Cube = () => {
                 marginTop: "1rem",
                 marginLeft: "1rem",
                 lineHeight: "1.5",
+                maxWidth: "81%",
               }}
             >
               {projectData[projectName as keyof typeof projectData].description || "Description"}
