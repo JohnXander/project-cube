@@ -281,6 +281,21 @@ export const Cube = () => {
             color: "white",
           }}
         >
+          {/* Render Subtitle */}
+          {projectName && projectData[projectName as keyof typeof projectData] && (
+            <Typography
+              variant="subtitle1"
+              sx={{
+                fontSize: "1rem",
+                fontWeight: "medium",
+                marginBottom: "1rem",
+                marginLeft: "1rem",
+              }}
+            >
+              {projectData[projectName as keyof typeof projectData].subtitle || "Subtitle"}
+            </Typography>
+          )}
+
           {/* Render Video or Image */}
           {projectName && projectData[projectName as keyof typeof projectData] ? (
             projectData[projectName as keyof typeof projectData].video ? (
@@ -310,6 +325,21 @@ export const Cube = () => {
             )
           ) : (
             <p>Loading...</p>
+          )}
+
+          {/* Render Description */}
+          {projectName && projectData[projectName as keyof typeof projectData] && (
+            <Typography
+              variant="body1"
+              sx={{
+                fontSize: "1rem",
+                marginTop: "1rem",
+                marginLeft: "1rem",
+                lineHeight: "1.5",
+              }}
+            >
+              {projectData[projectName as keyof typeof projectData].description || "Description"}
+            </Typography>
           )}
         </DialogContent>
       </Dialog>
