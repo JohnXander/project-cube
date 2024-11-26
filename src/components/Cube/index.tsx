@@ -12,7 +12,7 @@ import geoquix from "../../assets/geoquix.jpg";
 import projectcube from "../../assets/projectcube.jpg";
 import captivote from "../../assets/captivote.jpg";
 import avatarify from "../../assets/avatarify.jpg";
-import { Typography, Box, Button, Link } from "@mui/material";
+import { Typography, Box, Button, Link, Tooltip } from "@mui/material";
 import { projectData } from "../../data/projectData";
 
 export const Cube = () => {
@@ -283,6 +283,60 @@ export const Cube = () => {
             color: "white",
           }}
         >
+          {projectName && projectData[projectName as keyof typeof projectData]?.tech && (
+            <Box
+              sx={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "0.5rem",
+                marginLeft: "1rem",
+                marginBottom: "0.5rem",
+              }}
+            >
+              {projectData[projectName as keyof typeof projectData].tech!.map((tech) => {
+                // Convert tech to domain if necessary
+                const domainMap: Record<string, string> = {
+                  "Electron": "electronjs.org",
+                  "TypeScript": "typescriptlang.org",
+                  "MongoDB": "mongodb.com",
+                  "Express": "expressjs.com",
+                  "React": "react.dev",
+                  "TanStack Query": "tanstack.com",
+                  "Node": "nodejs.org",
+                  "Tailwind": "tailwindcss.com",
+                  "Redux": "redux.js.org",
+                  "Next JS": "nextjs.org",
+                  "Prisma": "prisma.io",
+                  "tRPC": "trpc.io",
+                  "Postgres": "postgresql.org",
+                  "Three.js": "threejs.org",
+                  "MUI": "mui.com",
+                  "React Native": "reactnative.dev",
+                };
+
+                const domain = domainMap[tech];
+                if (!domain) return null; // Skip tech without a mapped domain
+
+                const iconUrl = `https://icons.duckduckgo.com/ip3/${domain}.ico`;
+
+                return (
+                  <Tooltip key={tech} title={tech}>
+                    <img
+                      src={iconUrl}
+                      alt={tech}
+                      style={{
+                        width: "24px",
+                        height: "24px",
+                        borderRadius: "4px",
+                        backgroundColor: "#1e293b", // Fallback for missing icons
+                      }}
+                    />
+                  </Tooltip>
+                );
+              })}
+            </Box>
+          )}
+        
           {/* Render Subtitle */}
           {projectName && projectData[projectName as keyof typeof projectData] && (
             <Typography

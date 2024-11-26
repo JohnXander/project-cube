@@ -23,7 +23,7 @@ export const projectData: Record<ProjectKey, ProjectData> = {
     subtitle: "A school desktop app built with Electron.",
     description: "This is the description for Klipboar.",
     image: klipboarImg,
-    tech: ["Electron", "TypeScript", "MongoDB", "Express", "React", "React Query", "Node", "Tailwind"],
+    tech: ["Electron", "TypeScript", "MongoDB", "Express", "React", "TanStack Query", "Node", "Tailwind"],
   },
   minilrs: {
     title: "Mini LRS",
