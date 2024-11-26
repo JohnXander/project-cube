@@ -14,6 +14,8 @@ interface ProjectData {
   video?: string;
   image?: string;
   tech?: string[];
+  repo?: string;
+  site?: string;
 }
 
 export const projectData: Record<ProjectKey, ProjectData> = {
@@ -24,6 +26,7 @@ export const projectData: Record<ProjectKey, ProjectData> = {
     description: "This is the description for Klipboar.",
     image: klipboarImg,
     tech: ["Electron", "TypeScript", "MongoDB", "Express", "React", "TanStack Query", "Node", "Tailwind"],
+    repo: "https://github.com/JohnXander/klipboar"
   },
   minilrs: {
     title: "Mini LRS",
@@ -32,6 +35,8 @@ export const projectData: Record<ProjectKey, ProjectData> = {
     description: "This is the description for Mini LRS.",
     image: minilrsImg,
     tech: ["TypeScript", "MongoDB", "Express", "React", "Redux", "Node", "Tailwind"],
+    repo: "https://github.com/JohnXander/mini-lrs",
+    site: "https://mini-lrs.onrender.com"
   },
   geoquix: {
     title: "GeoQuix",
@@ -40,6 +45,8 @@ export const projectData: Record<ProjectKey, ProjectData> = {
     description: "This is the description for GeoQuix.",
     image: geoquixImg,
     tech: ["TypeScript", "Next JS", "Prisma", "tRPC", "Postgres", "Tailwind"],
+    repo: "https://github.com/JohnXander/geoquix",
+    site: "https://geoquix.vercel.app"
   },
   projectcube: {
     title: "Project Cube",
@@ -48,6 +55,7 @@ export const projectData: Record<ProjectKey, ProjectData> = {
     description: "This is the description for Project Cube.",
     image: projectcubeImg,
     tech: ["TypeScript", "Three.js", "React", "MUI"],
+    repo: "https://github.com/JohnXander/project-cube"
   },
   captivote: {
     title: "Captivote",
