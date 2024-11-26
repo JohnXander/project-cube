@@ -271,15 +271,16 @@ export const Cube = () => {
           </Button>
         </DialogTitle>
         <DialogContent
-          style={{
+           sx={{
             height: "calc(100vh - 64px)",
+            maxHeight: "calc(100vh - 64px)", // Ensure it doesn't exceed the screen height
             width: '100%',
-            padding: 20,
+            padding: 2,
             paddingTop: 0,
             display: "flex",
             flexDirection: "column",
             alignItems: "start",
-            overflow: "hidden",
+            overflowY: "auto", // Enable vertical scrolling
             color: "white",
           }}
         >
