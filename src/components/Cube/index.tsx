@@ -24,10 +24,8 @@ export const Cube = () => {
   const [projectName, setProjectName] = useState<string | null>(null);
   const [showInstructions, setShowInstructions] = useState(true);
 
-  // Texture loader for loading images
   const textureLoader = new THREE.TextureLoader();
 
-  // Load images for the cube faces
   const textures = [
     { texture: textureLoader.load(projectcube), name: "projectcube" },
     { texture: textureLoader.load(klipboar), name: "klipboar" },
@@ -91,7 +89,6 @@ export const Cube = () => {
         </mesh>
       </Canvas>
 
-      {/* Instructions for the user */}
       {showInstructions && (
         <Box
           sx={{
@@ -105,7 +102,7 @@ export const Cube = () => {
             paddingLeft: "1rem",
             backgroundColor: "rgba(0, 0, 0, 0.5)",
             borderRadius: "5px",
-            width: "280px", // Default width
+            width: "280px", 
             fontSize: "0.875rem",
           }}
         >
@@ -122,8 +119,8 @@ export const Cube = () => {
               cursor: "pointer",
               textTransform: "none",
               outline: "none",
-              padding: "0 !important", // Ensure no padding
-              minWidth: 0, // Remove default minimum width
+              padding: "0 !important", 
+              minWidth: 0, 
               "&:focus": {
                 outline: "none",
               },
@@ -148,7 +145,6 @@ export const Cube = () => {
         </Box>
       )}
 
-       {/* Links to GitHub and LinkedIn */}
        <Box
         sx={{
           position: "absolute",
@@ -173,7 +169,7 @@ export const Cube = () => {
               margin: "0 10px",
               fontWeight: "bold",
               "&:hover": {
-                color: "#7dd3fc", // Change to your desired hover color
+                color: "#7dd3fc", 
               },
             }}
           >
@@ -189,7 +185,7 @@ export const Cube = () => {
               fontWeight: "bold",
               fontSize: "1rem",
               "&:hover": {
-                color: "#7dd3fc", // Change to your desired hover color
+                color: "#7dd3fc",
               },
             }}
           >
@@ -204,7 +200,7 @@ export const Cube = () => {
               fontWeight: "bold",
               fontSize: "1rem",
               "&:hover": {
-                color: "#7dd3fc", // Change to your desired hover color
+                color: "#7dd3fc", 
               },
             }}
           >
@@ -220,9 +216,8 @@ export const Cube = () => {
         maxWidth="xl"
         PaperProps={{
           sx: {
-            // Default styles
-            width: '75vw', // 75% width for larger screens
-            height: '100vh', // Full height
+            width: '75vw',
+            height: '100vh', 
             margin: 0,
             padding: 0,
             overflow: 'hidden',
@@ -232,9 +227,8 @@ export const Cube = () => {
               width: '50vw',
             },
       
-            // Media query for small screens (mobile)
             '@media (max-width: 600px)': {
-              width: '100vw',  // Full width for mobile
+              width: '100vw', 
             },
           },
         }}
@@ -273,14 +267,14 @@ export const Cube = () => {
         <DialogContent
            sx={{
             height: "calc(100vh - 64px)",
-            maxHeight: "calc(100vh - 64px)", // Ensure it doesn't exceed the screen height
+            maxHeight: "calc(100vh - 64px)",
             width: '100%',
             padding: 2,
             paddingTop: 0,
             display: "flex",
             flexDirection: "column",
             alignItems: "start",
-            overflowY: "auto", // Enable vertical scrolling
+            overflowY: "auto", 
             color: "white",
           }}
         >
@@ -295,7 +289,6 @@ export const Cube = () => {
               }}
             >
               {projectData[projectName as keyof typeof projectData].tech!.map((tech) => {
-                // Convert tech to domain if necessary
                 const domainMap: Record<string, string> = {
                   "Electron": "electronjs.org",
                   "TypeScript": "typescriptlang.org",
@@ -316,7 +309,7 @@ export const Cube = () => {
                 };
 
                 const domain = domainMap[tech];
-                if (!domain) return null; // Skip tech without a mapped domain
+                if (!domain) return null; 
 
                 const iconUrl = `https://icons.duckduckgo.com/ip3/${domain}.ico`;
 
@@ -329,7 +322,7 @@ export const Cube = () => {
                         width: "24px",
                         height: "24px",
                         borderRadius: "4px",
-                        backgroundColor: "#1e293b", // Fallback for missing icons
+                        backgroundColor: "#1e293b",
                       }}
                     />
                   </Tooltip>
@@ -338,7 +331,6 @@ export const Cube = () => {
             </Box>
           )}
         
-          {/* Render Subtitle */}
           {projectName && projectData[projectName as keyof typeof projectData] && (
             <Typography
               variant="subtitle1"
@@ -354,7 +346,6 @@ export const Cube = () => {
             </Typography>
           )}
 
-          {/* Render Video or Image */}
           {projectName && projectData[projectName as keyof typeof projectData] ? (
             projectData[projectName as keyof typeof projectData].video ? (
               <video
@@ -385,7 +376,6 @@ export const Cube = () => {
             <p>Loading...</p>
           )}
 
-          {/* Render Description */}
           {projectName && projectData[projectName as keyof typeof projectData] && (
             <Typography
               variant="body1"
@@ -412,7 +402,7 @@ export const Cube = () => {
                   margin: "0 10px",
                   fontWeight: "bold",
                   "&:hover": {
-                    color: "#7dd3fc", // Change to your desired hover color
+                    color: "#7dd3fc",
                   },
                 }}
                 >
@@ -429,7 +419,7 @@ export const Cube = () => {
                   margin: "0 10px",
                   fontWeight: "bold",
                   "&:hover": {
-                    color: "#7dd3fc", // Change to your desired hover color
+                    color: "#7dd3fc", 
                   },
                 }}
                 >
