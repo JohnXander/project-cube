@@ -1,11 +1,6 @@
 import { Box, Button, Dialog, DialogContent, DialogTitle, Link, Tooltip, Typography } from "@mui/material";
 import { projectData } from "../../data/projectData";
-
-interface ProjectDialogProps {
-  openDialog: boolean;
-  setOpenDialog: (value: boolean) => void;
-  projectName: string | null;
-}
+import { ProjectDialogProps } from "./projectDialog.types";
 
 export const ProjectDialog = ({
   openDialog,

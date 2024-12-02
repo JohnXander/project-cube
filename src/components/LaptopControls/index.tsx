@@ -1,8 +1,5 @@
 import { Box, Button, Typography } from "@mui/material";
-
-interface LaptopControlsProps {
-  setShowInstructions: (value: boolean) => void;
-}
+import { LaptopControlsProps } from "./laptopControls.types";
 
 export const LaptopControls = ({ setShowInstructions }: LaptopControlsProps) => (
   <Box
