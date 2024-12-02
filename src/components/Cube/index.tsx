@@ -3,7 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { ThreeEvent } from "@react-three/fiber";
 import * as THREE from "three"; // Import THREE
-import klipboar from "../../assets/klipboar.jpg";
+import klipboar from "../../assets/klipboar/klipboarCube.jpg";
 import minilrs from "../../assets/minilrs.jpg";
 import geoquix from "../../assets/geoquix.jpg";
 import projectcube from "../../assets/projectcube.jpg";
