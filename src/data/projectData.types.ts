@@ -8,8 +8,13 @@ export interface ProjectData {
   subtitle?: string;
   description: string;
   video?: string;
-  image?: string;
+  mainImage?: string;
   tech?: string[];
   repo?: string;
   site?: string;
+  img1?: string;
+  img2?: string;
+  img3?: string;
+  img4?: string;
+  img5?: string;
 }
