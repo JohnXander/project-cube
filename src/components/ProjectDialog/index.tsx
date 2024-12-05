@@ -7,6 +7,7 @@ import { ProjectLinks } from "./ProjectLinks";
 import { ProjectSubtitle } from "./ProjectSubtitle";
 import { ProjectMedia } from "./ProjectMedia";
 import { ProjectBackground } from "./ProjectBackground";
+import { ProjectWalkthrough } from "./ProjectWalkthrough";
 
 export const ProjectDialog = ({
   openDialog,
@@ -76,6 +77,11 @@ export const ProjectDialog = ({
             <ProjectBackground
               project={project}
             />
+            {project.desc1 && (
+              <ProjectWalkthrough
+                project={project}
+              />
+            )}
           </>
         )}
         {!project && <p>Loading...</p>}
