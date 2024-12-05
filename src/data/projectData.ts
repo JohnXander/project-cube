@@ -15,7 +15,9 @@ export const projectData: Record<ProjectKey, ProjectData> = {
   klipboar: {
     title: "Klipboar",
     year: '2024',
-    subtitle: "A desktop app that allows students to create assignments and conduct research using the integrated browser. Teachers can analyse submissions to identify copied content, track the websites it was sourced from, and even view the exact time the copying took place.",
+    subtitle: `A desktop app that allows students to create assignments and conduct research using the integrated browser.
+      Teachers can analyse submissions to identify copied content, track the websites it was sourced from, and even view 
+      the exact time the copying took place.`,
     background: 'Klipboar background',
     mainImage: klipboarImg,
     tech: [Tech.Electron, Tech.TypeScript, Tech.MongoDB, Tech.Express, Tech.React, Tech.TanStackQuery, Tech.Node, Tech.Tailwind],

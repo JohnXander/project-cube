@@ -7,7 +7,7 @@ export interface ProjectDialogProps {
 }
 
 export interface ProjectComponentBasicProps {
-  projectName: string | null;
+  projectName?: string | null;
   project: ProjectData | null;
 }
 
