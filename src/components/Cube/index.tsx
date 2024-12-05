@@ -1,7 +1,6 @@
-import { useRef, useState } from "react";
-import { Canvas } from "@react-three/fiber";
+import { useRef, useState, useEffect } from "react";
+import { Canvas, ThreeEvent } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { ThreeEvent } from "@react-three/fiber";
 import * as THREE from "three";
 import klipboar from "../../assets/klipboar/klipboarCube.jpg";
 import minilrs from "../../assets/minilrs/minilrsCube.jpg";
@@ -9,6 +8,7 @@ import geoquix from "../../assets/geoquix/geoquixCube.jpg";
 import projectcube from "../../assets/projectcube/projectcubeCube.jpg";
 import captivote from "../../assets/captivote/captivoteCube.jpg";
 import avatarify from "../../assets/avatarify/avatarifyCube.jpg";
+import soundtrack from "../../assets/soundtrack.webm"; // Add your audio file here
 import { LaptopControls } from "../LaptopControls";
 import { ContactInfo } from "../ContactInfo";
 import { ProjectDialog } from "../ProjectDialog";
@@ -21,6 +21,9 @@ export const Cube = () => {
   const [openDialog, setOpenDialog] = useState(false);
   const [projectName, setProjectName] = useState<string | null>(null);
   const [showInstructions, setShowInstructions] = useState(true);
+  const [isMuted, setIsMuted] = useState(true); // State for mute/unmute
+
+  const audioRef = useRef<HTMLAudioElement | null>(null); // Reference for the audio element
 
   const textureLoader = new THREE.TextureLoader();
 
@@ -65,8 +68,28 @@ export const Cube = () => {
     }
   };
 
+  const toggleAudio = () => {
+    if (audioRef.current) {
+      if (isMuted) {
+        audioRef.current.play();
+      } else {
+        audioRef.current.pause();
+      }
+    }
+    setIsMuted(!isMuted);
+  };
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.loop = true;
+      audioRef.current.play();
+    }
+  }, []);
+
   return (
     <div style={{ userSelect: "none" }}>
+      <audio ref={audioRef} src={soundtrack} />
+
       <Canvas
         style={{ height: "100vh", width: "100vw", background: "linear-gradient(135deg, #0f172a, #1e293b)" }}
         camera={{ position: [0, 0, 5] }}
@@ -86,19 +109,9 @@ export const Cube = () => {
           <boxGeometry args={[2, 2, 2]} />
         </mesh>
       </Canvas>
-      {
-        showInstructions && (
-          <LaptopControls
-            setShowInstructions={setShowInstructions} 
-          />
-        )
-      }
-      <ContactInfo />
-      <ProjectDialog
-        openDialog={openDialog}
-        setOpenDialog={setOpenDialog}
-        projectName={projectName} 
-      />
+      {showInstructions && <LaptopControls setShowInstructions={setShowInstructions} />}
+      <ContactInfo toggleAudio={toggleAudio} isMuted={isMuted} />
+      <ProjectDialog openDialog={openDialog} setOpenDialog={setOpenDialog} projectName={projectName} />
     </div>
   );
 };

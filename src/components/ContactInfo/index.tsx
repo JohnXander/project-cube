@@ -1,6 +1,10 @@
 import { Box, Link, Typography } from "@mui/material";
+import { ContactInfoProps } from "./contactInfo.types";
 
-export const ContactInfo = () => (
+export const ContactInfo = ({
+  toggleAudio,
+  isMuted
+}: ContactInfoProps) => (
   <Box
     sx={{
       position: "absolute",
@@ -15,7 +19,14 @@ export const ContactInfo = () => (
     <Typography variant="body2" sx={{ mb: '0.25rem' }}>
       Connect with me:
     </Typography>
-    <Box>
+    <Box
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexWrap: "nowrap",
+      }}
+    >
       <Link
         href="https://github.com/JohnXander"
         target="_blank"
@@ -25,7 +36,7 @@ export const ContactInfo = () => (
           margin: "0 10px",
           fontWeight: "bold",
           "&:hover": {
-            color: "#7dd3fc", 
+            color: "#7dd3fc",
           },
         }}
       >
@@ -56,12 +67,27 @@ export const ContactInfo = () => (
           fontWeight: "bold",
           fontSize: "1rem",
           "&:hover": {
-            color: "#7dd3fc", 
+            color: "#7dd3fc",
           },
         }}
       >
         Email
       </Link>
+      <button
+        onClick={toggleAudio}
+        style={{
+          background: "transparent",
+          border: "none",
+          padding: 0,
+          fontSize: "1.5rem",
+          cursor: "pointer",
+          color: "white",
+          outline: "none",
+          marginLeft: '10px',
+        }}
+      >
+        {isMuted ? "🔇" : "🔊"}
+      </button>
     </Box>
   </Box>
-)
+);
