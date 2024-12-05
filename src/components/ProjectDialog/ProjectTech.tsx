@@ -1,12 +1,12 @@
 import { Box, Tooltip } from "@mui/material";
-import { projectData } from "../../data/projectData";
 import { ProjectComponentBasicProps } from "./projectDialog.types";
 
 export const ProjectTech = ({
   projectName,
+  project,
 }: ProjectComponentBasicProps) => (
   <>
-    {projectName && projectData[projectName as keyof typeof projectData]?.tech && (
+    {projectName && project?.tech && (
       <Box
         sx={{
           display: "flex",
@@ -16,7 +16,7 @@ export const ProjectTech = ({
           marginBottom: "0.5rem",
         }}
       >
-        {projectData[projectName as keyof typeof projectData].tech!.map((tech) => {
+        {project.tech.map((tech) => {
           const domainMap: Record<string, string> = {
             "Electron": "electronjs.org",
             "TypeScript": "typescriptlang.org",

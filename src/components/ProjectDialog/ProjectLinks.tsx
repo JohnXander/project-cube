@@ -1,39 +1,39 @@
 import { Box, Link } from "@mui/material";
 import { ProjectComponentBasicProps } from "./projectDialog.types";
-import { projectData } from "../../data/projectData";
 
 export const ProjectLinks = ({
   projectName,
+  project,
 }: ProjectComponentBasicProps) => (
-  <Box sx={{ margin: '1rem 0.5rem' }}>
-    {projectName && projectData[projectName as keyof typeof projectData].repo && (
+  <Box sx={{ marginBottom: '1rem', marginLeft: '0.5rem' }}>
+    {projectName && project?.repo && (
       <Link
-        href={projectData[projectName as keyof typeof projectData].repo}
+        href={project.repo}
         target="_blank"
         sx={{
-          color: "white",
+          color: "#7dd3fc",
           textDecoration: "none",
           margin: "0 10px",
           fontWeight: "bold",
           "&:hover": {
-            color: "#7dd3fc",
+            color: "#38bdf8",
           },
         }}
         >
         GitHub Repo
       </Link>
     )}
-    {projectName && projectData[projectName as keyof typeof projectData].site && (
+    {projectName && project?.site && (
       <Link
-        href={projectData[projectName as keyof typeof projectData].site}
+        href={project.site}
         target="_blank"
         sx={{
-          color: "white",
+          color: "#7dd3fc",
           textDecoration: "none",
           margin: "0 10px",
           fontWeight: "bold",
           "&:hover": {
-            color: "#7dd3fc", 
+            color: "#38bdf8", 
           },
         }}
         >

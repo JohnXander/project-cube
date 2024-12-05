@@ -1,18 +1,18 @@
 import { Button, DialogTitle, Typography } from "@mui/material";
 import { ProjectTitleProps } from "./projectDialog.types";
-import { projectData } from "../../data/projectData";
 
 export const ProjectTitle = ({
   projectName,
+  project,
   setOpenDialog,
 }: ProjectTitleProps) => (
   <DialogTitle sx={{ color: "white", position: "relative", padding: "1rem 2rem"}}>
     <Typography variant="h4" sx={{ fontSize: "1.5rem", fontWeight: "bold" }}>
-    {projectName && projectData[projectName as keyof typeof projectData]
-      ? projectData[projectName as keyof typeof projectData].title
+    {projectName
+      ? project?.title
       : "Project Name"}
     {" "}
-    ({projectName && projectData[projectName as keyof typeof projectData].year || "Year"})
+    ({project?.year || "Year"})
     </Typography>
     <Button
       onClick={() => setOpenDialog(false)}
