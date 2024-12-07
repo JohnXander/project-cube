@@ -16,3 +16,7 @@ export interface ProjectTitleProps {
   project: ProjectData | null;
   setOpenDialog: (value: boolean) => void;
 }
+
+export interface BackToTopButtonProps {
+  handleBackToTop: () => void;
+}
