@@ -40,5 +40,22 @@ export const ProjectLinks = ({
         Live Site
       </Link>
     )}
+    {projectName && project?.api && (
+      <Link
+        href={project.api}
+        target="_blank"
+        sx={{
+          color: "#7dd3fc",
+          textDecoration: "none",
+          margin: "0 10px",
+          fontWeight: "bold",
+          "&:hover": {
+            color: "#38bdf8", 
+          },
+        }}
+        >
+        API
+      </Link>
+    )}
   </Box>
 )

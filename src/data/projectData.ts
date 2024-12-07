@@ -39,11 +39,12 @@ export const projectData: Record<ProjectKey, ProjectData> = {
     subtitle: `A geography quiz app that lets you test your knowledge on different countries around the world. 
       You can challenge yourself by playing solo or against friends to see who can get the highest score.`,
     background: `One of many full-stack apps I built after completing Boolean UK's coding bootcamp in October 2022.
-      My aim was to build something that would interact with a free RESTful API: https://restcountries.com.`,
+      My aim was to build something that would interact with a free RESTful API service.`,
     mainImage: geoquixImg,
     tech: [Tech.TypeScript, Tech.NextJS, Tech.Prisma, Tech.tRPC, Tech.Postgres, Tech.Tailwind],
     repo: "https://github.com/JohnXander/geoquix",
     site: "https://geoquix.vercel.app",
+    api: "https://restcountries.com",
     img1: geoquixImg1,
     img2: geoquixImg2,
     img3: geoquixImg3,

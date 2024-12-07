@@ -10,6 +10,7 @@ export interface ProjectData {
   mainImage?: string;
   tech?: string[];
   repo?: string;
+  api?: string;
   site?: string;
   img1?: string;
   img2?: string;
