@@ -34,6 +34,7 @@ export const ProjectTech = ({
             "Three.js": "threejs.org",
             "MUI": "mui.com",
             "React Native": "reactnative.dev",
+            "Firebase": "firebase.google.com",
           };
 
           const domain = domainMap[tech];

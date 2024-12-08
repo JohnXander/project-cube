@@ -13,5 +13,6 @@ export enum Tech {
   Postgres = "Postgres",
   NextJS = "Next JS",
   ThreeJS = "Three.js",
-  MUI = "MUI"
+  MUI = "MUI",
+  Firebase = "Firebase",
 }
