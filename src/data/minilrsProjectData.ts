@@ -15,7 +15,10 @@ export const minilrsProjectData = {
   title: "Mini LRS",
   year: '2024',
   subtitle: "A compact and efficient Learning Record Store designed for seamless tracking and storage of xAPI statements.",
-  background: 'Minilrs background',
+  background: `A miniature version of the Learning Record Store project I worked on in my first job as a software engineer. 
+    Built during my first year at the company, this project helped me deepen my understanding of our product, the e-learning industry, 
+    and the tech stack we use. It also served as a way to explore how smaller-scale implementations of LRS functionality can be 
+    developed.`,
   mainImage: minilrsImg,
   tech: [Tech.TypeScript, Tech.MongoDB, Tech.Express, Tech.React, Tech.Redux, Tech.Node, Tech.Tailwind, Tech.Firebase],
   repo: "https://github.com/JohnXander/mini-lrs",
