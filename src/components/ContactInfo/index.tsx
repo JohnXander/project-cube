@@ -43,7 +43,7 @@ export const ContactInfo = ({
         GitHub
       </Link>
       <Link
-        href="https://www.linkedin.com/in/john-bloxam-210207250"
+        href="https://www.linkedin.com/in/johnny-bloxam-210207250/"
         target="_blank"
         sx={{
           color: "white",
