@@ -9,4 +9,4 @@ A 3D project portfolio built with Three.js.
 
 [Full Walkthrough](https://project-cube-portfolio.vercel.app/)
 
-![Project Cube Main Image](https://raw.githubusercontent.com/JohnXander/project-cube/main/src/assets/projectcube/projectcubeMain.jpg)
+![Project Cube Main Image](./src/assets/projectcube/projectcubeMain.jpg)
