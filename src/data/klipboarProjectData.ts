@@ -40,7 +40,7 @@ export const klipboarProjectData = {
     solutions.`,
   mainImage: klipboarImg,
   tech: [Tech.Electron, Tech.TypeScript, Tech.MongoDB, Tech.Express, Tech.React, Tech.TanStackQuery, Tech.Node, Tech.Tailwind],
-  repo: "https://github.com/JohnXander/klipboar",
+  repo: "https://github.com/JohnXander/klipboar-desktop",
   img1: klipboarImg1,
   img2: klipboarImg2,
   img3: klipboarImg3,

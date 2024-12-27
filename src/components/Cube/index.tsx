@@ -8,7 +8,7 @@ import geoquix from "../../assets/geoquix/geoquixCube.jpg";
 import projectcube from "../../assets/projectcube/projectcubeCube.jpg";
 import captivote from "../../assets/captivote/captivoteCube.jpg";
 import avatarify from "../../assets/avatarify/avatarifyCube.jpg";
-import soundtrack from "../../assets/soundtrack.webm"; // Add your audio file here
+import soundtrack from "../../assets/soundtrack.webm";
 import { LaptopControls } from "../LaptopControls";
 import { ContactInfo } from "../ContactInfo";
 import { ProjectDialog } from "../ProjectDialog";
@@ -21,9 +21,9 @@ export const Cube = () => {
   const [openDialog, setOpenDialog] = useState(false);
   const [projectName, setProjectName] = useState<string | null>(null);
   const [showInstructions, setShowInstructions] = useState(true);
-  const [isMuted, setIsMuted] = useState(true); // State for mute/unmute
+  const [isMuted, setIsMuted] = useState(true);
 
-  const audioRef = useRef<HTMLAudioElement | null>(null); // Reference for the audio element
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const textureLoader = new THREE.TextureLoader();
 
