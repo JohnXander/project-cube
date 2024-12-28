@@ -54,7 +54,7 @@ export const ProjectLinks = ({
           },
         }}
         >
-        API
+        API Used
       </Link>
     )}
   </Box>

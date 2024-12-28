@@ -77,7 +77,7 @@ export const klipboarProjectData = {
   desc4: `Teachers can create an organisation by entering a name in the dialog box. Here, we create "Jane Doe's School."`,
   desc5: `The new organisation will now appear on the organisation login page. Teachers can manage members, leave the organisation, 
     or select the organisation to complete the login process, granting both user and organisation tokens.`,
-  desc6: `Now logged in, you land on the Assignments page. If no assignments have been submitted to you, a message will indicate that.`,
+  desc6: `Now fully logged in, you land on the Assignments page. If no assignments have been submitted to you, a message will indicate that.`,
   desc7: `Teachers can navigate to the Guidelines page. If you have not yet created a guideline, it will display "No guidelines created." 
     Clicking "Create Guideline" opens a dialog for guideline creation.`,
   desc8: `In the guideline creation dialog, there are input details such as name, description, word limit, and due date. Here, we 
@@ -95,8 +95,8 @@ export const klipboarProjectData = {
     specified website for their assignment research purposes.`,
   desc15: `The main window displays shortcuts to frequently visited websites under the search bar. Clicking a shortcut launches 
     the website directly. These website shortcut icons are ordered by total number of launches.`,
-  desc16: `Students fill out a form to create assignments, selecting a teacher and guideline. In this example, we create 
-    "All About Apples", using Jane Doe's previously-created assignment guideline.`,
+  desc16: `Students fill out a form to create assignments, selecting a teacher and guideline. In this example, we create an assignment 
+    called "All About Apples", using our teacher's (Jane Doe) previously-created assignment guideline.`,
   desc17: `The assignment list shows details like title, description, teacher, word count, and due date. The status updates to 
     "Submitted" once the assignment is turned in.`,
   desc18: `Clicking an assignment opens a detailed view where students can write, edit, save, submit, or delete their work.`,
@@ -108,12 +108,13 @@ export const klipboarProjectData = {
     dynamically updates as students add text, ensuring they stay within the assignment's limits.`,
   desc23: `After saving their work, students submit the assignment. A confirmation dialog ensures submission is intentional 
     and final.`,
-  desc24: `Now logged in again as Jane Doe, we can see the assignment that John Smith submitted to us. Teachers will also see 
-    details about submission timing (e.g. "3 days early").`,
+  desc24: `Now logged in again as the teacher, Jane Doe, we can see the assignment that our student, John Smith, submitted to us. 
+    Teachers will also see details about submission timing (e.g. "3 days early").`,
   desc25: `Teachers view assignments with a similar layout but cannot edit content. They will also see a "Websites Used" section 
-    listing sources used by the student. This is the USP of Klipboar.`,
-  desc26: `Teachers can click on a website in "Websites Used" to highlight text copied from that source, revealing its origin 
-    and contextual details such as exactly when it was copied.`,
+    listing sources used by the student. This is Klipboar's USP...`,
+  desc26: `Teachers can click on a website in the "Websites Used" section to highlight text copied from that source, revealing 
+    its origin. Details of exactly when it was copied can be seen when the teacher hovers over the
+    highlighted text.`,
   desc27: `This clipboard activity metadata lives in every single character of the assignment. Notice in our example that the 
-    British "u" is not highlighted, indicating that it was original content.`,
+    British "u" is not highlighted, indicating that it was the student's original content.`,
 };

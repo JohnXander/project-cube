@@ -59,7 +59,7 @@ export const ContactInfo = ({
         LinkedIn
       </Link>
       <Link
-        href="mailto:your-email@example.com"
+        href="mailto:johnbloxam@gmail.com"
         sx={{
           color: "white",
           textDecoration: "none",

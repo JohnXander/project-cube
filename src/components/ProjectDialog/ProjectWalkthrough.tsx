@@ -33,7 +33,7 @@ export const ProjectWalkthrough = ({ project }: ProjectComponentBasicProps) => {
           marginBottom: "1rem",
         }}
       >
-        Walkthrough
+        Full Walkthrough
       </Typography>
       {walkthroughItems.map((item, index) => (
         <Box key={index} style={{ marginBottom: '1rem'}}>

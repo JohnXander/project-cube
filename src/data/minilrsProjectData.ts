@@ -33,7 +33,7 @@ export const minilrsProjectData = {
   img8: minilrsImg8,
   img9: minilrsImg9,
   desc1: `The landing page displays a timeline of xAPI statements. Each statement summarizes a user's action 
-    (e.g., "Johnny completed Quiz 1") along with the time it occurred (e.g., "22 minutes ago"). This provides 
+    (e.g. "Johnny completed Quiz 1") along with the time it occurred (e.g. "22 minutes ago"). This provides 
     a clear and organized view of all logged interactions.`,
   desc2: `Clicking on a statement opens a detailed dialog. This dialog displays the raw xAPI statement in JSON format, 
     showing fields like actor, verb, object, and additional details like results for completed actions.`,
@@ -52,7 +52,7 @@ export const minilrsProjectData = {
     personal details (e.g. profile picture, username, email, password), sign out, or delete their profile. Deleting 
     the profile also removes all associated xAPI statements from the system.`,
   desc8: `Users without accounts see a "Sign In" option in the header, directing them to the sign-in page. 
-    Signing in unlocks personalized features, such as learner progress tracking and profile management.`,
+    Signing in unlocks personalised features, such as learner progress tracking and profile management.`,
   desc9: `From the sign-in page, users can navigate to the sign-up page to create an account. Registration requires 
     a username, email, password, and confirmation of the password, ensuring secure access to the application.`,
 };
