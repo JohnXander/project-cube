@@ -1,5 +1,5 @@
-import { Dialog, DialogContent } from "@mui/material";
-import { useRef } from "react";
+import { Box, Dialog, DialogContent } from "@mui/material";
+import { useRef, useState } from "react";
 import { projectData } from "../../data/projectData";
 import { ProjectDialogProps } from "./projectDialog.types";
 import { ProjectTitle } from "./ProjectTitle";
@@ -10,6 +10,7 @@ import { ProjectMedia } from "./ProjectMedia";
 import { ProjectBackground } from "./ProjectBackground";
 import { ProjectWalkthrough } from "./ProjectWalkthrough";
 import { BackToTopButton } from "./BackToTopButton";
+import { Project } from "../../../lib/enums/projects.enum";
 
 export const ProjectDialog = ({
   openDialog,
@@ -17,14 +18,21 @@ export const ProjectDialog = ({
   projectName,
 }: ProjectDialogProps) => {
   const project = projectName ? projectData[projectName as keyof typeof projectData] : null;
-
   const contentRef = useRef<HTMLDivElement>(null);
+  const nonScrollableProject = projectName === Project.avatarify || projectName === Project.captivote;
+  const [showScrollIndicator, setShowScrollIndicator] = useState(true);
 
   const handleBackToTop = () => {
     if (contentRef.current) {
       contentRef.current.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
+
+  const handleScroll = () => {
+    if (contentRef.current && contentRef.current.scrollTop > 500) {
+      setShowScrollIndicator(false);
+    }
+  }
 
   return (
     <Dialog
@@ -52,6 +60,7 @@ export const ProjectDialog = ({
       <ProjectTitle projectName={projectName} project={project} setOpenDialog={setOpenDialog} />
       <DialogContent
         ref={contentRef}
+        onScroll={handleScroll}
         sx={{
           height: "calc(100vh - 64px)",
           maxHeight: "calc(100vh - 64px)",
@@ -81,6 +90,25 @@ export const ProjectDialog = ({
           </>
         )}
         {!project && <p>Loading...</p>}
+        {!nonScrollableProject && showScrollIndicator && (
+          <Box
+            sx={{
+              position: "absolute",
+              bottom: 16,
+              right: 8,
+              transform: "translateX(-50%)",
+              zIndex: 10,
+              animation: "bounce 1.5s infinite",
+              "@keyframes bounce": {
+                "0%, 20%, 50%, 80%, 100%": { transform: "translateX(-50%) translateY(0)" },
+                "40%": { transform: "translateX(-50%) translateY(-10px)" },
+                "60%": { transform: "translateX(-50%) translateY(-5px)" },
+              },
+            }}
+          >
+            <span style={{ fontSize: "24px", color: "white" }}>⬇</span>
+          </Box>
+        )}
       </DialogContent>
     </Dialog>
   );
