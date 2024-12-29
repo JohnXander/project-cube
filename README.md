@@ -7,6 +7,6 @@
 
 A 3D project portfolio built with Three.js.
 
-[Full Walkthrough](https://project-cube-portfolio.vercel.app/)
+[Full Walkthrough](https://johnxander.vercel.app)
 
 ![Project Cube Main Image](./src/assets/projectcube/projectcubeMain.jpg)
